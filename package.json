@@ -1,0 +1,13 @@
+{
+  "name": "playtore-clone-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "javascript-obfuscator": "^4.1.0"
+  }
+}

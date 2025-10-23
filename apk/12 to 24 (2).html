@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>WTFCK </title>
+<style>
+  body {
+    font-family: monospace;
+    background: url('https://images.hdqwalls.com/wallpapers/shark-dark-5k-wc.jpg') no-repeat center top;
+    background-size: cover;
+    color: #00ffcc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
+  }
+
+  h2 { text-shadow: 0 0 10px #00ffcc; }
+
+  textarea { 
+    width: 100%; max-width: 700px; height: 300px; margin: 10px 0;
+    padding: 15px; border-radius: 10px; border: 2px solid #00ffcc;
+    background: rgba(0,0,0,0.3); color: #00ffcc; resize: none;
+  }
+
+  button {
+    padding: 10px 25px;
+    background: #00ffcc;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+
+  button:hover { background: #00ddaa; }
+</style>
+</head>
+<body>
+
+<h2>WTFCK</h2>
+<textarea id="inputLinks" placeholder="?:D"></textarea>
+<button onclick="copyLinks()">WTFCK</button>
+
+<script>
+function copyLinks() {
+    let text = document.getElementById('inputLinks').value;
+    let lines = text.split('\n').filter(l => l.trim() !== '');
+    let output = [];
+
+    lines.forEach(line => {
+        line = line.trim();
+        if (!line.startsWith('"')) line = '"' + line;
+        if (!line.endsWith('"')) line = line + '"';
+        // Her linki iki kere ekle, virgül ekle
+        output.push(line + ',');
+        output.push(line + ',');
+    });
+
+    // Çýktýyý textarea’ya koy
+    let temp = document.createElement('textarea');
+    temp.value = output.join('\n');
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand('copy');
+    document.body.removeChild(temp);
+    alert('Yess Baby)');
+}
+</script>
+
+</body>
+</html>
